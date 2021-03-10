@@ -53,9 +53,8 @@ class User
     this.m_password = value; 
   }
 
-  
 /**
- * Default constructor for a User object.
+ * Default constructor
  * Creates an instance of User.
  * @param {string} [firstName=""]
  * @param {string} [lastName=""]

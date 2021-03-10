@@ -1,5 +1,12 @@
 /* custom JavaScript goes here */
 
+//IIFE - Immediately Invoked Function Expression
+//AKA - Anonymous Self-Executing Function
+//Closure - limits scope leak
+
+"use strict";
+
+
 class User
 {
   // accessors and mutators
@@ -7,79 +14,7 @@ class User
   {
     return this.m_firstName;
   }
-
-  set FirstName(value)
-  {
-    this.m_firstName = value;
-  }
-
-  get LastName()
-  {
-    return this.m_lastName;
-  }
-
-  set LastName(value)
-  {
-    this.m_lastName = value;
-  }
-
-  get Username()
-  {
-    return this.m_username;
-  }
-
-  set Username(value)
-  {
-    this.m_username = value;
-  }
-
-  get EmailAddress()
-  {
-    return this.m_emailAddress;
-  }
-
-  set EmailAddress(value)
-  {
-    this.m_emailAddress = value;
-  }
-
-  get Password()
-  {
-    return this.m_password;
-  }
-
-  set Password(value)
-  {
-    this.m_password = value; 
-  }
-
-  
-/**
- * Default constructor for a User object.
- * Creates an instance of User.
- * @param {string} [firstName=""]
- * @param {string} [lastName=""]
- * @param {string} [username=""]
- * @param {string} [emailAddress=""]
- * @param {string} [password=""]
- * @memberof User
- */
-constructor(firstName = "", lastName = "", username = "", emailAddress = "", password = "")
-  {
-    this.FirstName = firstName;
-    this.LastName = lastName;
-    this.Username = username;
-    this.EmailAddress = emailAddress;
-    this.Password = password;
-  }
-
 }
-
-//IIFE - Immediately Invoked Function Expression
-//AKA - Anonymous Self-Executing Function
-//Closure - limits scope leak
-
-"use strict";
 
 ((core) =>
 {

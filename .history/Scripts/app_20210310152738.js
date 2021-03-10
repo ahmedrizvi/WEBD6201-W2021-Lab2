@@ -33,46 +33,10 @@ class User
     this.m_username = value;
   }
 
-  get EmailAddress()
+  get Email()
   {
-    return this.m_emailAddress;
+    return this.m_emailAddress
   }
-
-  set EmailAddress(value)
-  {
-    this.m_emailAddress = value;
-  }
-
-  get Password()
-  {
-    return this.m_password;
-  }
-
-  set Password(value)
-  {
-    this.m_password = value; 
-  }
-
-  
-/**
- * Default constructor for a User object.
- * Creates an instance of User.
- * @param {string} [firstName=""]
- * @param {string} [lastName=""]
- * @param {string} [username=""]
- * @param {string} [emailAddress=""]
- * @param {string} [password=""]
- * @memberof User
- */
-constructor(firstName = "", lastName = "", username = "", emailAddress = "", password = "")
-  {
-    this.FirstName = firstName;
-    this.LastName = lastName;
-    this.Username = username;
-    this.EmailAddress = emailAddress;
-    this.Password = password;
-  }
-
 }
 
 //IIFE - Immediately Invoked Function Expression

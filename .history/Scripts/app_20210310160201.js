@@ -53,7 +53,6 @@ class User
     this.m_password = value; 
   }
 
-  
 /**
  * Default constructor for a User object.
  * Creates an instance of User.

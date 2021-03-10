@@ -1,11 +1,10 @@
 {
-  "name": "webd6201-w2021-lab2",
+  "name": "webd6201-w2021-lab1b",
   "version": "1.0.0",
-  "description": "Site for Lab 2",
+  "description": "Demo Site for Lab 1",
   "main": "app.js",
   "repository": "https://github.com/durhamprogrammer/WEBD6201-W2021-ICE1b.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
-  "author": "Ahmed Rizvi <syed.rizvi21@dcmail.ca>",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
