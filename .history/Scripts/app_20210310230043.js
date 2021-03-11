@@ -376,8 +376,6 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       validateFirstName();
       validateLastName();
       validateEmailAddress();
-      let passInput = validatePassword();
-      validateConfirmPassword(passInput);
     }
 
     function validateFirstName()
@@ -428,11 +426,13 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
 
     function validateEmailAddress()
     {
+      // email must have at least 8 characters, and contain the '@' symbol
+      let pattern = /([A-Z,a-z,0-9]{8})+(\s|@)/;
+
       // validate once field loses focus
       $("#emailAddress").on("blur", function()
         {
-          // email is not at least 8 characters and does not contain the '@' symbol
-          if(!($(this).val().length >= 8 && $(this).val().includes("@")))
+          if(!pattern.test($(this).val()))
           {
             $(this).trigger("focus").trigger("select");
             $("#ErrorMessage").show().addClass("alert alert-danger").text("Email address must contain at least 8 characters and the @ sign.");
@@ -440,7 +440,7 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
           else
           {
             // validates, so remove the error message
-            $("#ErrorMessage").removeAttr("class").hide();
+            ErrorMessage.removeAttr("class").hide();
           }
         });
     }
@@ -451,35 +451,18 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       let pattern = /^.{6,}$/;
 
       // validate once field loses focus
-      $("#password").on("blur", function()
+      $("#passwordReg").on("blur", function()
         {
-          if(!pattern.test($(this).val()))
+          if(!passwordRegPattern.test($(this).val()))
           {
             $(this).trigger("focus").trigger("select");
-            $("#ErrorMessage").show().addClass("alert alert-danger").text("Password must contain at least 6 characters.");
+            ErrorMessage.show().addClass("alert alert-danger").text("The entered Password is invalid. It must contain at least 6 characters.");
           }
           else
           {
-            $("#ErrorMessage").removeAttr("class").hide();
-            return $(this).val();
+            ErrorMessage.removeAttr("class").hide();
           }
         });
-    }
-
-    function validateConfirmPassword(passwordInput)
-    {
-      $("#confirmPassword").on("blur", function()
-      {
-        if(!($(this).val() == passwordInput))
-        {
-          $(this).trigger("focus").trigger("select");
-          $("#ErrorMessage").show().addClass("alert alert-danger").text("Passwords do not match.");
-        }
-        else
-        {
-
-        }
-      });
     }
 
     function LoginStatus()

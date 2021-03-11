@@ -377,7 +377,6 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       validateLastName();
       validateEmailAddress();
       let passInput = validatePassword();
-      validateConfirmPassword(passInput);
     }
 
     function validateFirstName()
@@ -428,10 +427,12 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
 
     function validateEmailAddress()
     {
+      // email must have at least 8 characters, and contain the '@' symbol
+      let pattern = /([A-Z,a-z,0-9]{8})+(\s|@)/;
+
       // validate once field loses focus
       $("#emailAddress").on("blur", function()
         {
-          // email is not at least 8 characters and does not contain the '@' symbol
           if(!($(this).val().length >= 8 && $(this).val().includes("@")))
           {
             $(this).trigger("focus").trigger("select");
@@ -470,7 +471,7 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
     {
       $("#confirmPassword").on("blur", function()
       {
-        if(!($(this).val() == passwordInput))
+        if(!($(this).val() === passwordInput))
         {
           $(this).trigger("focus").trigger("select");
           $("#ErrorMessage").show().addClass("alert alert-danger").text("Passwords do not match.");

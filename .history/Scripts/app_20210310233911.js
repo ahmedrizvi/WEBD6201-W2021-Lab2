@@ -431,7 +431,6 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       // validate once field loses focus
       $("#emailAddress").on("blur", function()
         {
-          // email is not at least 8 characters and does not contain the '@' symbol
           if(!($(this).val().length >= 8 && $(this).val().includes("@")))
           {
             $(this).trigger("focus").trigger("select");
