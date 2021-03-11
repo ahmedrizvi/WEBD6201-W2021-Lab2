@@ -356,14 +356,14 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
 
         if(newUsername && newPassword)
         {
-          // save the username and password to session storage
-          sessionStorage.setItem("username", newUsername);
-          sessionStorage.setItem("password", newPassword);
-
-          // redirect to homepage
-          location.href = "index.html";
+          
         }
-        
+        // redirect to homepage
+        location.href = "index.html";
+
+        // save the username and password to session storage
+        sessionStorage.setItem("username", newUsername);
+        sessionStorage.setItem("password", newPassword);
       });
     }
 

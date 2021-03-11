@@ -348,58 +348,24 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
 
     function displayLogin()
     {
-      // login form was submitted
+      // login button was clicked
       $("#btnLogin").on("click", function()
       {
-        let newUsername = $("#contactName").val();
-        let newPassword = $("#password").val();
+        let username = $("#username");
+        let password = $("#password");
 
-        if(newUsername && newPassword)
-        {
-          // save the username and password to session storage
-          sessionStorage.setItem("username", newUsername);
-          sessionStorage.setItem("password", newPassword);
+        let addUser = new core.User();
 
-          // redirect to homepage
-          location.href = "index.html";
-        }
-        
+        // add the user to session storage
+        sessionStorage.setItem("user", addUser.serialize());
+
+        // redirect user to homepage
       });
     }
 
     function displayRegister()
     {
 
-    }
-
-    function LoginStatus()
-    {
-      // user is logged in
-      if(sessionStorage.getItem("username"))
-      {
-        // change login button to show logout instead
-        $("#login").html
-        (
-          `<a id="logout" class="nav-link" aria-current="page" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`
-        );
-
-        // hold the session's username
-        let getUsername = sessionStorage.getItem("username");
-
-        // display username on nav bar
-        $(`<li class="nav-item"><div id="sessionUsername" class="nav-link"></div>`).insertBefore("#login");
-        $("#sessionUsername").text(getUsername);
-
-        // logout button was clicked
-        $("#logout").on("click", function()
-        {
-          // clear the current session
-          sessionStorage.clear();
-
-          // redirect to login page
-          location.href = "login.html";
-        });
-      }
     }
 
     function Start()
@@ -436,8 +402,7 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
             displayRegister();
           break;
         }
-        // call the LoginStatus function
-        LoginStatus();
+        
     }
 
     window.addEventListener("load", Start);

@@ -364,6 +364,8 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
           location.href = "index.html";
         }
         
+
+        
       });
     }
 

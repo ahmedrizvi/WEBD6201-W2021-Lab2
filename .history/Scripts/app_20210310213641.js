@@ -349,21 +349,14 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
     function displayLogin()
     {
       // login form was submitted
-      $("#btnLogin").on("click", function()
+      $("#loginForm").submit(function()
       {
         let newUsername = $("#contactName").val();
         let newPassword = $("#password").val();
 
-        if(newUsername && newPassword)
-        {
-          // save the username and password to session storage
-          sessionStorage.setItem("username", newUsername);
-          sessionStorage.setItem("password", newPassword);
-
-          // redirect to homepage
-          location.href = "index.html";
-        }
-        
+        // save the username and password to session storage
+        sessionStorage.setItem("username", newUsername);
+        sessionStorage.setItem("password", newPassword);
       });
     }
 
@@ -384,11 +377,8 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
         );
 
         // hold the session's username
-        let getUsername = sessionStorage.getItem("username");
-
         // display username on nav bar
-        $(`<li class="nav-item"><div id="sessionUsername" class="nav-link"></div>`).insertBefore("#login");
-        $("#sessionUsername").text(getUsername);
+        $(`<li class="nav-item"><div id="sessionUser" class="nav-link"></div>`).insertBefore("#login");
 
         // logout button was clicked
         $("#logout").on("click", function()
