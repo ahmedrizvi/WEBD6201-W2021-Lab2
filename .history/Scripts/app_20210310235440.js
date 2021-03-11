@@ -453,6 +453,8 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       // validate once field loses focus
       $("#password").on("blur", function()
         {
+          let checkPass = 
+
           if(!pattern.test($(this).val()))
           {
             $(this).trigger("focus").trigger("select");

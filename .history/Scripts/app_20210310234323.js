@@ -461,15 +461,17 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
           else
           {
             $("#ErrorMessage").removeAttr("class").hide();
+            return $(this).val();
           }
         });
     }
 
     function validateConfirmPassword(passwordInput)
     {
+      let confirmPass = $("#confirmPassword").val();
       $("#confirmPassword").on("blur", function()
       {
-        if(!($(this).val() === $("#password").val()))
+        if(($(this).val() === passwordInput))
         {
           $(this).trigger("focus").trigger("select");
           $("#ErrorMessage").show().addClass("alert alert-danger").text("Passwords do not match.");

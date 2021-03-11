@@ -453,7 +453,9 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       // validate once field loses focus
       $("#password").on("blur", function()
         {
-          if(!pattern.test($(this).val()))
+          let checkPass = $(this).val();
+
+          if(!pattern.test(checkPass))
           {
             $(this).trigger("focus").trigger("select");
             $("#ErrorMessage").show().addClass("alert alert-danger").text("Password must contain at least 6 characters.");
@@ -461,6 +463,7 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
           else
           {
             $("#ErrorMessage").removeAttr("class").hide();
+            return checkPass;
           }
         });
     }

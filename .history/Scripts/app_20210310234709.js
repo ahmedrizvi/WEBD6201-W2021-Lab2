@@ -453,6 +453,9 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
       // validate once field loses focus
       $("#password").on("blur", function()
         {
+          let checkPass = $(this).val();
+          console.log(checkPass);
+
           if(!pattern.test($(this).val()))
           {
             $(this).trigger("focus").trigger("select");
@@ -461,15 +464,17 @@ constructor(firstName = "", lastName = "", username = "", emailAddress = "", pas
           else
           {
             $("#ErrorMessage").removeAttr("class").hide();
+            return $(this).val();
           }
         });
     }
 
     function validateConfirmPassword(passwordInput)
     {
+      let confirmPass = $("#confirmPassword").val();
       $("#confirmPassword").on("blur", function()
       {
-        if(!($(this).val() === $("#password").val()))
+        if(!(confirmPass === passwordInput))
         {
           $(this).trigger("focus").trigger("select");
           $("#ErrorMessage").show().addClass("alert alert-danger").text("Passwords do not match.");
